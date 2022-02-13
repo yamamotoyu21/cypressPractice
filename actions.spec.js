@@ -76,6 +76,15 @@ context('Actions', () => {
 
     })
 
+    it('.dblclick() - double ckick on a DOM element', () => {
+
+        cy.get('.action-div').dblclick().should('not.be.visible')
+        cy.get('.action-input-hidden').should('be.visible')
+
+    })
+
+
+
 
 
 
