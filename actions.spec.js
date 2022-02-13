@@ -24,6 +24,13 @@ context('Actions', () => {
         .should('have.value', 'disabled error cheking')
     })
 
+    it('.focus() -focus on a DOM element', () => {
+        cy.get('.action-focus').focus()
+        .should('have.class', 'focus')
+        .prev().should('have.attr', 'style', 'color: orange;')
+
+    })
+
 
 
 
