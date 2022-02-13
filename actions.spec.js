@@ -49,6 +49,35 @@ context('Actions', () => {
          .next().should('contain', 'Your form has been submitted')
     })
 
+    it('.click() - click on a DOM element', () => {
+        cy.get('.action-btn').click()
+
+        const canvas = cy.get('#action-canvas')
+
+        canvas.click('topLeft')
+        canvas.click('top')
+        canvas.click('topRight')
+        canvas.click('left')
+        canvas.click('right')
+        canvas.click('bottomLeft')
+        canvas.click('bottom')
+        canvas.click('bottomRight')
+
+        canvas.click(80, 75)
+        canvas.click(170, 75)
+        canvas.click(80, 165)
+        canvas.click(100, 185)
+        canvas.click(125, 190)
+        canvas.click(150, 185)
+        canvas.click(170, 165)
+
+        cy.get('.action-labels>.label').click({multiple: true})
+        cy.get('.action-opacity>.btn').click({force: true})
+
+    })
+
+
+
 
 
 
