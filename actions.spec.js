@@ -88,8 +88,26 @@ context('Actions', () => {
     // })
 
     it('.check() - check a checkbox or radio element', () => {
-        cy.get('.action-checkboxes [type="checkbox"]').not(['disabled'])
-        .check().should("be.checked")
+        // cy.get('.action-checkboxes [type="checkbox"]').not(['disabled'])
+        // .check().should("be.checked")
+
+        // cy.get('.action-radios[type="radio"]').not('[disabled]')
+        // .check().should('be.checked')
+
+        cy.get('.action-checkboxes [disabled]')
+        .check({force: true}).should("be.checked")
+
+        cy.get('.action-radios [type="radio"]')
+        .check('radio3',{force:true}).should("be.checked")
+
+        cy.get('.action-multiple-checkboxes [type="checkbox"]')
+        .check(['checkbox1', 'checkbox2']).should('be.checked')
+
+        cy.get('.action-checkboxes [disabled]')
+        .check({ force: true}).should("be.checked")
+
+        cy.get('.action-radios [type="radio"]')
+         .check({ force: true}).should("be.checked")
     })
 
 
