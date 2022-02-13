@@ -9,7 +9,25 @@ context('Actions', () => {
         cy.get('.action-email')
         .type('fake@email.com').should('have.value', 'fake@email.com')
 
-        .type('{selectall}{backspace}')
+        .type('{selectall}{backspace}{uparrow}{downarrow}')
+        .type('{del}{selectall}{backspace}')
+
+        .type('{alt}{option}')
+        .type('{ctrl}{control}')
+        .type('{meta}{command}{cmd}')
+        .type('{shift}')
+
+        //無効性になっているかの確認
+        //force:trueの意味があまりよくわかってないかも
+       cy.get('.action-disabled')
+        .type('disabled error cheking',{force: true})
+        .should('have.value', 'disabled error cheking')
+    })
+
+
+
+
+
 
     })
-})
+
