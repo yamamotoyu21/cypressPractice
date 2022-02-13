@@ -41,6 +41,16 @@ context('Actions', () => {
          .should('have.value', '')
     })
 
+    it('.submit() - sumbmit a form', () => {
+        cy.get('.action-form')
+         .find('[type="text"]').type('HALFOFF')
+
+        cy.get('.action-form').submit()
+         .next().should('contain', 'Your form has been submitted')
+    })
+
+
+
 
 
 
